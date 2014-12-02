@@ -35,12 +35,13 @@ def pairs(occur):
                         potential_pairs[pot_key] = 1
                     else:
                         potential_pairs[pot_key] += 1
-                    break
+                    
     for keys in potential_pairs.keys():
         if potential_pairs[keys] >= 50:
             keyz = keys.split("_")
-            pairs.append((keyz[0],keyz[1]))
+            if not (keyz[0],keyz[1]) in pairs:
+                pairs.append((keyz[0],keyz[1]))
     
     return pairs
 occur = occurred(listing)
-print pairs(occur)
+print len(pairs(occur))
