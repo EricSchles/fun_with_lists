@@ -21,6 +21,7 @@ def occurred(lists):
                     occur[i].append(ind)
     return occur
 
+#brute force solution
 def pairs(occur):
     pairs = []
     potential_pairs = {}
@@ -40,8 +41,9 @@ def pairs(occur):
         if potential_pairs[keys] >= 50:
             keyz = keys.split("_")
             if not (keyz[0],keyz[1]) in pairs:
-                pairs.append((keyz[0],keyz[1]))
-    
+                if not (keyz[1],keyz[0]) in pairs:
+                    pairs.append((keyz[0],keyz[1]))
     return pairs
+
 occur = occurred(listing)
 print len(pairs(occur))
