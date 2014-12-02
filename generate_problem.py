@@ -1,3 +1,4 @@
+import random
 
 #problem definition:
 " I'm given a data set of 1000 lists of up to 50 strings. 
@@ -12,3 +13,11 @@ with open("word_list.txt","r") as f:
         i = i.replace("\n","")
         words.append(i)
 
+words = words[:100]
+for i in xrange(1000):
+    tmp = []
+    length = random.randint(0,50)
+    for j in xrange(length):
+        tmp.append(words[random.randint(0,len(words))])
+    
+                   
