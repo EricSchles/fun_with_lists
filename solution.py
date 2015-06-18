@@ -25,7 +25,7 @@ def occurred(lists):
 def pairs(occur):
     pairs = []
     potential_pairs = {}
-    for key in occur:
+    for key in occur.keys()[:len(occur)/2]:
         for other_key in occur:
             if key == other_key:
                 continue
